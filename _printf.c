@@ -1,36 +1,30 @@
 #include "main.h"
-#include <stdlib.h>
-#include <stdarg.h>
 
-#define MAX_BUF 1024
 /**
- * _printf - prints the input on the shell buffer
- * @format: requested format
+ * _printf - Produces output according to a format
+ * @format: Is a character string. The format string
+ * is composed of zero or more directives
  *
- * Return: a length of the string outputed
- */
+ * Return: The number of characters printed (excluding
+ * the null byte used to end output to strings)
+ **/
 int _printf(const char *format, ...)
 {
-	int value, i;
+	int size;
 	va_list args;
-	char *result;
 
-	if (!format || args == NULL)
+	if (format == NULL)
 		return (-1);
-	if (format[0] == '%' && !format[1])
-		return (-1);
-	result = malloc(MAX_BUF);
-	if (!result)
-		return (-1);
-	for (i = 0; i < MAX_BUF; i++)
-		result[i] = '\0';
+
+	size = _strlen(format);
+	if (size <= 0)
+		return (0);
+
 	va_start(args, format);
-	value = get_formater(result, format, args);
-	while (*result)
-	{
-		_write(*result);
-		result++;
-	}
+	size = handler(format, args);
+
+	_putchar(-1);
 	va_end(args);
-	return (value);
+
+	return (size);
 }
