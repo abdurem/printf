@@ -4,10 +4,10 @@
 #include <unistd.h>
 
 /**
- * op_string - Print Integer
- * @form: name va_list
+ * _putchar - prints given character 
+ * @c: character to print.
  *
- * Return: Nothing.
+ * Return: number of characters printed, -1 if erorr
  */
 
 int _putchar(char c)
