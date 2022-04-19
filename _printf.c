@@ -2,13 +2,7 @@
 #include <stdarg.h>
 #include "main.h"
 
-/**
- * validator - Function that produces output according to a format.
- * @format: Pointer
- * @print1: va_list
- * @ops1: struct
- * Return: Always 0
- */
+
 int validator(const char *format, va_list print1, MyPrint *ops1)
 {
 	int i = 0, j = 0, count = 0;
@@ -50,11 +44,6 @@ int validator(const char *format, va_list print1, MyPrint *ops1)
 	}
 	return (count);
 }
-/**
- * _printf - Function that produces output according to a format.
- * @format: Pointer
- * Return: Always 0
- */
 
 int _printf(const char *format, ...)
 {
